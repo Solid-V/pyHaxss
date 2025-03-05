@@ -23,17 +23,29 @@ timers = [
         "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
 ]
 
+def get_all_forms(url):
+    soup = bs(url.content, "html.parser")
+    return soup.find_all("form")
+    
+
 def get_forms(url):
     soup = bs(url.content, "html.parser")
-    print(soup.find_all("form"))
+    forms = soup.find_all("form")
 
-def form_details(form):
+    inputs = []
+    action = dict( ("actions",form.attrs.get("action", "").lower()) for form in forms)
+    method = dict(("method", form.attrs.get("method").lower()) for form in forms)
+    input_type = inputs.append(dict(("type", input_elem.attrs.get("type", "text"))for input_elem in soup.find_all("input")))
+    input_name = inputs.append(dict(("name", input_elem.attrs.get("name"))for input_elem in soup.find_all("input")))
+    
+
     details = {}
-    action = form.attrs.get("action", "").lower()
-    method = form.attrs.get("method", "post").lower()
+    details.update(action)
+    details.update(method)
+    details["input"] = inputs
+    print(details)
 
-    inputs = [] 
-    for input_tag in form.find_all("input"):
-        input_type = input_tag.attrs.get("type", "text")
+def submit_form():
+    pass
 
 get_forms(url)
