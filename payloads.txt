@@ -1,3 +1,0 @@
-<script>alert("XSSed")</script>
-
-this is a test
