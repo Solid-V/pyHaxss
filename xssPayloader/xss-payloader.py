@@ -11,8 +11,6 @@ import requests
 import random
 
 url = requests.get("https://xss-game.appspot.com/level1/frame")
-#credentials for testing
-#os.environ["PROFILE_PATH"] = "C:\\Users\\ambuj\\AppData\\Local\\Google\\Chrome\\User Data"
 
 #options required for using existing chrome profiles
 options = webdriver.ChromeOptions()
@@ -33,19 +31,26 @@ def get_forms(url):
     forms = soup.find_all("form")
 
     inputs = []
+    details = {}
+
     action = dict( ("actions",form.attrs.get("action", "").lower()) for form in forms)
     method = dict(("method", form.attrs.get("method").lower()) for form in forms)
     input_type = inputs.append(dict(("type", input_elem.attrs.get("type", "text"))for input_elem in soup.find_all("input")))
     input_name = inputs.append(dict(("name", input_elem.attrs.get("name"))for input_elem in soup.find_all("input")))
+    input_id = inputs.append(dict(("id", input_elem.attrs.get("id"))for input_elem in soup.find_all("input")))
     
-
-    details = {}
     details.update(action)
     details.update(method)
     details["input"] = inputs
-    print(details)
+    #print(details)
+    return details
 
-def submit_form():
-    pass
+def get_xpath(url):
+    inputs = get_forms(url)
+    if "method" in inputs:
+        for x, input in inputs.items():
+            pass
+        for y in input:
+            print(y.values())
 
-get_forms(url)
+get_xpath(url)
