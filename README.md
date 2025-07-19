@@ -1,4 +1,4 @@
-#  pyHaxxs by Daddy_V
+#  pyHaxxs by Solid-V
 
 A Python-based reflected XSS scanner that automatically detects vulnerable input fields on a given URL and tests them using a JavaScript payload. Built with BeautifulSoup, Requests, and Colorama for CLI aesthetics.
 
