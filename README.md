@@ -27,7 +27,6 @@ pip install -r requirements.txt
 
 ## TODO
  - Add POST request support
- - DOM-based XSS detection (using headless browser)
- - Generate HTML vulnerability report
+ - DOM-based XSS detection
  - Add logging support
  - And many other features once i figure out how to :>
