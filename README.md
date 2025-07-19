@@ -8,10 +8,8 @@ A Python-based reflected XSS scanner that automatically detects vulnerable input
 
 - Scans web pages for form `<input>` fields
 - Matches them against common parameter names
-- Injects a test XSS payload (`<script>alert(1)</script>`)
+- Injects a test XSS payload
 - Detects successful reflections in the HTTP response
-- Colorful CLI banner using `colorama`
-- Easily extensible and beginner-friendly
 
 ---
 
