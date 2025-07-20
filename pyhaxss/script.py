@@ -81,4 +81,4 @@ try:
     for param in found_types:
         xss_payload(f"{target_url}", {param: encoded_payload})
 except e :
-    print("we found an execption: {e}")
+    print(f"we found an execption: {e}")
