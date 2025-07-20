@@ -1,1 +1,3 @@
 <script>alert("XSSed")</script>
+
+more payloads will be set and they will be read from this file in the future
