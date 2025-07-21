@@ -1,6 +1,5 @@
 from bs4 import BeautifulSoup as bs, Tag
 import requests as re
-import json
 import urllib.parse
 import argparse
 from colorama import init, Fore, Style, Back
@@ -18,7 +17,6 @@ types = [  # common paramtere names to be bruteforced for parameter discovery
     'height', 'add', 'result', 'log', 'demo', 'example', 'message', 'searchPhrase', 'content']
 #param = {{types} : {payload}}
 found_types = []
-json_param = []
 param = []
 
 #processing command line args
